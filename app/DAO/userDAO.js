@@ -1,11 +1,9 @@
-
 import mongoose from 'mongoose';
 import * as _ from 'lodash';
 import Promise from 'bluebird';
 import applicationException from '../service/applicationException';
 import mongoConverter from '../service/mongoConverter';
 import uniqueValidator from 'mongoose-unique-validator';
-
 
 const userRole = {
   admin: 'admin',
@@ -31,7 +29,7 @@ const UserModel = mongoose.model('user', userSchema);
 function createNewOrUpdate(user) {
   return Promise.resolve().then(() => {
     if (!user.id) {
-      return new  UserModel(user).save().then(result => {
+      return new UserModel(user).save().then(result => {
         if (result) {
           return mongoConverter(result);
         }

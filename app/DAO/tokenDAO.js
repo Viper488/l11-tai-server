@@ -32,11 +32,11 @@ async function create(user) {
     access: access
   };
   const value = jwt.sign(
-    userData,
-    config.JwtSecret,
-    {
-      expiresIn: '3h'
-    });
+      userData,
+      config.JwtSecret,
+      {
+        expiresIn: '3h'
+      });
   const result = await TokenModel({
     userId: user.id,
     type: 'authorization',
